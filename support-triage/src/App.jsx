@@ -493,7 +493,7 @@ function App() {
 
           <button
             type="button"
-            className="primary-button"
+            className="primary-button gemini-ai-button"
             onClick={analyzeWithAI}
             disabled={analyzingAI || savingTicket}
           >
@@ -530,7 +530,7 @@ function App() {
 
 
           <button
-            className="primary-button"
+            className="primary-button create-ticket-button"
             type="submit"
             disabled={savingTicket || analyzingAI}
           >

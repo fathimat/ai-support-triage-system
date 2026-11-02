@@ -920,3 +920,18 @@ form textarea,
 form select {
   margin-bottom: 10px;
 }
+
+.primary-button.gemini-ai-button,
+.primary-button.create-ticket-button {
+  width: 230px;
+  min-width: 230px;
+  max-width: 230px;
+  height: 42px;
+  min-height: 42px;
+  padding: 10px 14px;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+  align-self: center;
+  flex-shrink: 0;
+}
