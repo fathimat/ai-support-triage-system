@@ -507,25 +507,36 @@ function App() {
           )}
 
 
-          {aiAnalysis && (
-            <div className="ai-analysis-result">
-              <h4>Gemini AI Analysis</h4>
+          
+{aiAnalysis && (
+  <div className="ai-analysis-result">
+    <h4>✨ Gemini AI Analysis</h4>
 
-              <p><strong>Category:</strong> {aiAnalysis.category}</p>
+    <div className="ai-analysis-meta">
+      <span>
+        <strong>Category:</strong> {aiAnalysis.category}
+      </span>
+      <span>
+        <strong>Priority:</strong> {aiAnalysis.priority}
+      </span>
+    </div>
 
-              <p><strong>Priority:</strong> {aiAnalysis.priority}</p>
+    <div className="ai-analysis-section">
+      <h5>Technical Summary</h5>
+      <p>{aiAnalysis.summary}</p>
+    </div>
 
-              <p><strong>Technical Summary:</strong></p>
-              <p>{aiAnalysis.summary}</p>
+    <div className="ai-analysis-section">
+      <h5>Suggested Troubleshooting Steps</h5>
+      <ol>
+        {aiAnalysis.troubleshootingSteps.map((step, index) => (
+          <li key={index}>{step}</li>
+        ))}
+      </ol>
+    </div>
+  </div>
+)}
 
-              <p><strong>Suggested Troubleshooting Steps:</strong></p>
-              <ul>
-                {aiAnalysis.troubleshootingSteps.map((step, index) => (
-                  <li key={index}>{step}</li>
-                ))}
-              </ul>
-            </div>
-          )}
 
 
 
