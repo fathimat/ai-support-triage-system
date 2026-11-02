@@ -1,0 +1,922 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #172033;
+  background: #f4f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.app {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.topbar,
+.brand,
+.stats,
+.ticket-top,
+.ticket-footer,
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e1e6ef;
+}
+
+.brand {
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #3157d5;
+  color: white;
+  font-weight: 800;
+}
+
+.brand h1,
+.brand p,
+.welcome h2,
+.welcome p,
+.panel h3,
+.panel > p,
+.ticket h4,
+.ticket-description {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 19px;
+}
+
+.brand p,
+.muted,
+.hint,
+footer {
+  color: #788397;
+  font-size: 13px;
+}
+
+.brand p {
+  margin-top: 4px;
+}
+
+.local-badge {
+  color: #16794a;
+  background: #e6f7ed;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.welcome {
+  padding: 32px 0 24px;
+}
+
+.eyebrow {
+  color: #3157d5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.welcome h2 {
+  font-size: clamp(25px, 4vw, 34px);
+  margin: 8px 0;
+}
+
+.welcome > p:last-child {
+  color: #788397;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.panel {
+  background: white;
+  border: 1px solid #e7eaf1;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgb(25 40 80 / 3%);
+}
+
+.stat-card {
+  padding: 20px;
+}
+
+.stat-card span {
+  display: block;
+  color: #788397;
+  font-size: 13px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 30px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.5fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  padding: 22px;
+  min-width: 0;
+}
+
+.panel h3 {
+  font-size: 18px;
+}
+
+.ticket-form > .muted {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.ticket-form label {
+  display: block;
+  margin: 16px 0 8px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #dce2ec;
+  border-radius: 8px;
+  background: white;
+  color: #172033;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3157d5;
+  box-shadow: 0 0 0 3px rgb(49 87 213 / 10%);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px 12px;
+  background: #3157d5;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #2446b8;
+}
+
+.hint {
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.list-heading {
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.list-heading .muted {
+  margin-top: 6px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Make Search box full width */
+.toolbar .search-group {
+  grid-column: 1 / -1;
+}
+
+.toolbar .filter-group label {
+  text-align: left;
+  margin: 0;
+}
+
+.toolbar > button {
+  grid-column: 1 / -1;
+  justify-self: end;
+  width: auto;
+  padding: 11px 22px;
+  background: #3157d5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toolbar > button:hover {
+  background: #2446b8;
+}
+
+.toolbar .filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.toolbar .filter-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.toolbar .filter-group input,
+.toolbar .filter-group select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.tickets {
+  display: grid;
+  gap: 12px;
+}
+
+.ticket {
+  border: 1px solid #e6eaf1;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.ticket-id {
+  color: #788397;
+  font-size: 12px;
+}
+
+.priority,
+.category {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.priority.critical {
+  background: #ffe8e8;
+  color: #b42318;
+}
+
+.priority.high {
+  background: #fff0df;
+  color: #a54c00;
+}
+
+.priority.medium {
+  background: #fff8d8;
+  color: #866600;
+}
+
+.priority.low {
+  background: #e8f1ff;
+  color: #2856a5;
+}
+
+.ticket h4 {
+  font-size: 15px;
+  margin: 12px 0 7px;
+  overflow-wrap: anywhere;
+}
+
+.ticket-description {
+  color: #788397;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.ticket-footer {
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.category {
+  background: #f0f2f8;
+  color: #48536a;
+}
+
+.ticket-footer select {
+  width: auto;
+  max-width: 150px;
+  padding: 7px;
+  font-size: 12px;
+}
+
+.empty {
+  padding: 25px 10px;
+  color: #788397;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer {
+  padding: 24px 0 8px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 16px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .local-badge {
+    font-size: 10px;
+    padding: 7px;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card strong {
+    font-size: 25px;
+  }
+}
+
+.delete-button {
+  width: auto;
+  padding: 7px 10px;
+  border: 1px solid #f1caca;
+  border-radius: 7px;
+  background: white;
+  color: #b42318;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #fff0f0;
+}
+
+/* Ticket details modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.modal p {
+  margin: 14px 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.modal button {
+  margin-top: 16px;
+}
+
+/* ===== Dashboard design improvements ===== */
+
+/* Smoother page appearance */
+body {
+  background: #f4f7fc;
+}
+
+.app {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* Header */
+.topbar {
+  padding-bottom: 26px;
+}
+
+.brand-icon {
+  box-shadow: 0 5px 12px rgb(49 87 213 / 20%);
+}
+
+/* Welcome section */
+.welcome {
+  padding-top: 38px;
+  padding-bottom: 28px;
+}
+
+.welcome h2 {
+  letter-spacing: -0.8px;
+}
+
+/* Dashboard statistic cards */
+.stat-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgb(25 40 80 / 8%);
+}
+
+.stat-card strong {
+  letter-spacing: -1px;
+}
+
+/* Panels */
+.panel {
+  box-shadow: 0 5px 20px rgb(25 40 80 / 4%);
+}
+
+.panel h3 {
+  letter-spacing: -0.3px;
+}
+
+/* Ticket cards */
+.ticket {
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ticket:hover {
+  border-color: #cbd5f0;
+  box-shadow: 0 5px 16px rgb(25 40 80 / 6%);
+  transform: translateY(-2px);
+}
+
+/* View Details button */
+.details-button {
+  width: auto;
+  margin-top: 14px;
+  padding: 8px 12px;
+  border: 1px solid #d5defb;
+  border-radius: 7px;
+  background: #eef2ff;
+  color: #3157d5;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.details-button:hover {
+  background: #dfe7ff;
+}
+
+/* Delete button */
+.delete-button {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Status dropdown */
+.ticket-footer select {
+  cursor: pointer;
+}
+
+/* Modal polish */
+.modal {
+  border: 1px solid #e7eaf1;
+}
+
+.modal h2 {
+  color: #172033;
+  letter-spacing: -0.5px;
+}
+
+.modal button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #3157d5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: #2446b8;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .welcome {
+    padding-top: 28px;
+  }
+
+  .topbar {
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .ticket-footer {
+    flex-wrap: wrap;
+  }
+
+  .modal {
+    padding: 22px;
+  }
+}
+
+.error-message {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error-message::before {
+  content: "* ";
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+.required-star {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #166534;
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.success-message::before {
+  content: "✓ ";
+  font-weight: bold;
+}
+
+/* Edit Ticket popup styling */
+
+.modal label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+}
+
+.modal .edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal .edit-actions button {
+  margin-top: 0;
+}
+
+.modal .edit-actions .cancel-button {
+  background: #eef2f7;
+  color: #374151;
+}
+
+.modal .edit-actions .cancel-button:hover {
+  background: #e2e8f0;
+}
+
+
+/* Compact search and filter controls */
+.toolbar {
+  gap: 12px 16px;
+}
+
+.toolbar .filter-group select {
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.toolbar .search-group input {
+  height: 40px;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.toolbar .filter-group label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Smaller Clear Filters button */
+.toolbar > button {
+  width: auto;
+  padding: 7px 12px;
+  font-size: 12px;
+  min-height: 34px;
+  border-radius: 6px;
+  justify-self: end;
+}
+
+/* View Details and Edit buttons */
+.details-button,
+.edit-button {
+  display: inline-block;
+  padding: 9px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 6px;
+  border: none;
+  background: #eef2ff;
+  color: #3157d5;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Space between the two buttons */
+.edit-button {
+  margin-left: 12px;
+}
+
+.details-button:hover,
+.edit-button:hover {
+  background: #dbe4ff;
+}
+
+
+/* 1. Align View Details and Edit buttons */
+.details-button,
+.edit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: auto;
+  min-height: 34px;
+  padding: 7px 12px;
+  margin-top: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  border: none;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #3157d5;
+  cursor: pointer;
+}
+
+.edit-button {
+  margin-left: 12px;
+}
+
+.details-button:hover,
+.edit-button:hover {
+  background: #dbe4ff;
+}
+
+/* 2. Compact Edit Ticket popup */
+.modal {
+  width: min(440px, 92vw);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal label {
+  font-size: 12px;
+  margin: 10px 0 5px;
+}
+
+.modal input,
+.modal select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+  padding: 7px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.modal textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 75px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+/* 3. Smaller Save Changes and Cancel buttons */
+.modal .edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.modal .edit-actions button {
+  width: auto;
+  min-height: 34px;
+  padding: 7px 12px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 6px;
+}
+
+/* 4. Smaller Close button in View Details */
+.modal button {
+  width: auto;
+  min-height: 34px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 6px;
+}
+
+
+/* ==================================
+   FINAL UI POLISH
+   ================================== */
+
+/* Ticket Details popup */
+.modal h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.modal p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+.modal p strong,
+.modal p b {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Create Ticket form - compact inputs */
+form input,
+form select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+  padding: 7px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 75px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+form label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Create Ticket button */
+form button[type="submit"] {
+  width: auto;
+  min-height: 34px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Consistent form spacing */
+form input,
+form textarea,
+form select {
+  margin-bottom: 10px;
+}
