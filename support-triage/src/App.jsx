@@ -507,35 +507,35 @@ function App() {
           )}
 
 
-          
-{aiAnalysis && (
-  <div className="ai-analysis-result">
-    <h4>✨ Gemini AI Analysis</h4>
 
-    <div className="ai-analysis-meta">
-      <span>
-        <strong>Category:</strong> {aiAnalysis.category}
-      </span>
-      <span>
-        <strong>Priority:</strong> {aiAnalysis.priority}
-      </span>
-    </div>
+          {aiAnalysis && (
+            <div className="ai-analysis-result">
+              <h4>✨ Gemini AI Analysis</h4>
 
-    <div className="ai-analysis-section">
-      <h5>Technical Summary</h5>
-      <p>{aiAnalysis.summary}</p>
-    </div>
+              <div className="ai-analysis-meta">
+                <span>
+                  <strong>Category:</strong> {aiAnalysis.category}
+                </span>
+                <span>
+                  <strong>Priority:</strong> {aiAnalysis.priority}
+                </span>
+              </div>
 
-    <div className="ai-analysis-section">
-      <h5>Suggested Troubleshooting Steps</h5>
-      <ol>
-        {aiAnalysis.troubleshootingSteps.map((step, index) => (
-          <li key={index}>{step}</li>
-        ))}
-      </ol>
-    </div>
-  </div>
-)}
+              <div className="ai-analysis-section">
+                <h5>Technical Summary</h5>
+                <p>{aiAnalysis.summary}</p>
+              </div>
+
+              <div className="ai-analysis-section">
+                <h5>Suggested Troubleshooting Steps</h5>
+                <ol>
+                  {aiAnalysis.troubleshootingSteps.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          )}
 
 
 
@@ -649,7 +649,11 @@ function App() {
           </div>
 
           {loadingTickets ? (
-            <p>Loading tickets...</p>
+            <div className="server-wakeup-message">
+              <h3>Starting AI Support Triage Demo...</h3>
+              <p>Our free demo server is waking up. This may take around a minute.</p>
+              <p>Please wait. Your tickets will load automatically.</p>
+            </div>
           ) : databaseError ? (
             <div className="empty">
               <p>
